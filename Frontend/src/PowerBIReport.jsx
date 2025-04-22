@@ -215,6 +215,7 @@ const PowerBIReport = () => {
 
       const reportContainer = document.getElementById(containerID)
 
+      // const report = window.powerbi.embed(reportContainer,embedConfig);
       const report = window.powerbi.embed(reportContainer,embedConfig);
       // reportRef.current, 
 
