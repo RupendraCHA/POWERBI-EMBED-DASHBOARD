@@ -94,7 +94,7 @@ app.get("/get-embed-token", async (req, res) => {
     //   { headers: { Authorization: `Bearer ${accessToken}` } }
     // );
 
-    // const embedUrl = reportResponse.data.embedUrl; 
+    // const embedUrl = reportResponse.data.embedUrl;
 
     // Generate Embed token
     const embedTokenResponse = await axios.post(
@@ -147,12 +147,12 @@ app.post("/get-embed-token", async (req, res) => {
 
     // Get report details (to fetch embedUrl) //
     // 
-    // const reportResponse = await axios.get(
-    //   `https://api.powerbi.com/v1.0/myorg/groups/${groupID}/reports/${reportID}`,
-    //   { headers: { Authorization: `Bearer ${accessToken}` } }
-    // );
+    const reportResponse = await axios.get(
+      `https://api.powerbi.com/v1.0/myorg/groups/${groupID}/reports/${reportID}`,
+      { headers: { Authorization: `Bearer ${accessToken}` } }
+    );
 
-    // const embedUrl = reportResponse.data.embedUrl; 
+    const embedUrl = reportResponse.data.embedUrl; 
 
     // Generate Embed token
     const embedTokenResponse = await axios.post(
@@ -175,7 +175,7 @@ app.post("/get-embed-token", async (req, res) => {
       reportId: reportID,
       token: {
         token: embedToken,
-        // embedUrl: embedUrl
+        embedUrl: embedUrl
       }
     });
   } catch (err) {

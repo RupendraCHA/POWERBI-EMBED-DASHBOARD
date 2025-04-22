@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import { models } from "powerbi-client";
 import 'powerbi-client/dist/powerbi'; // 👈 Ensure this is imported
 import axios from "axios"
-import { URLContextProvider } from "./context/SToreContext";
+import { URLContextProvider } from "./context/CentralStorageContext";
 
 const PowerBIReport = () => {
   const reportRef = useRef(null);

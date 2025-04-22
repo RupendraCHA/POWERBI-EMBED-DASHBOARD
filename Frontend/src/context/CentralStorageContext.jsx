@@ -2,7 +2,7 @@ import React, { createContext } from 'react'
 
 export const URLContextProvider = createContext()
 
-const StoreContext = ({children}) => {
+const CentralStorageContext = ({children}) => {
 
     let url = "https://powerbi-embed-dashboard-backend.onrender.com"
 //   let url = "http://localhost:5000"
@@ -15,4 +15,4 @@ const StoreContext = ({children}) => {
   )
 }
 
-export default StoreContext
+export default CentralStorageContext

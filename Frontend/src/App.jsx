@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import PowerBIReport from "./PowerBIReport";
 import axios from "axios"
-import { URLContextProvider } from "./context/SToreContext";
+import { URLContextProvider } from "./context/CentralStorageContext";
 
 function App() {
 
