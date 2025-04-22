@@ -173,6 +173,7 @@ app.post("/get-embed-token", async (req, res) => {
 
     res.json({
       reportId: reportID,
+      // reportId: groupID,
       token: {
         token: embedToken,
         embedUrl: embedUrl
