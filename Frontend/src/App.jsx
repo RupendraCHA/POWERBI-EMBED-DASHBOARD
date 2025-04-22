@@ -1,10 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import PowerBIReport from "./PowerBIReport";
 import axios from "axios"
+import { URLContextProvider } from "./context/SToreContext";
 
 function App() {
 
-  let url = "https://powerbi-embed-dashboard-backend.onrender.com"
+  const {url} = useContext(URLContextProvider)
+  console.log(url)
 
   const startTheServer = async () => {
     const response = await axios.get(url);

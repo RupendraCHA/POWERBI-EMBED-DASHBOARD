@@ -1,12 +1,15 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { models } from "powerbi-client";
 import 'powerbi-client/dist/powerbi'; // 👈 Ensure this is imported
 import axios from "axios"
+import { URLContextProvider } from "./context/SToreContext";
 
 const PowerBIReport = () => {
   const reportRef = useRef(null);
 
-  let url = "https://powerbi-embed-dashboard-backend.onrender.com"
+
+    const {url} = useContext(URLContextProvider)
+  
   
     const startTheServer = async () => {
       const response = await axios.get(url);
@@ -145,7 +148,7 @@ const PowerBIReport = () => {
         groupID: groupID,
         reportID: reportID
       }
-    const response = await axios.post(`https://powerbi-embed-dashboard-backend.onrender.com/get-embed-token`, dashIdsData);
+    const response = await axios.post(url+`/get-embed-token`, dashIdsData);
           // const data = await response.json();
     console.log(response.data)
     const data = response.data
@@ -192,7 +195,7 @@ const PowerBIReport = () => {
 
             setActiveDashboard(id)
         try {
-          const response = await fetch("https://powerbi-embed-dashboard-backend.onrender.com/get-embed-token");
+          const response = await fetch(url+"/get-embed-token");
           const data = await response.json();
           console.log(data)
 
