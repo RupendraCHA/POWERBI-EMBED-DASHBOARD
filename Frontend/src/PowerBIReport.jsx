@@ -61,6 +61,17 @@ import axios from "axios"
 const PowerBIReport = () => {
   const reportRef = useRef(null);
 
+  let url = "https://powerbi-embed-dashboard-backend.onrender.com"
+  
+    const startTheServer = async () => {
+      const response = await axios.get(url);
+      console.log(response.data.message);
+    };
+  
+    useEffect(() => {
+      startTheServer()
+    },[])
+
   const [activeDashBoard, setActiveDashboard] = useState(0)
 
   const dashboardsData = [
@@ -189,7 +200,7 @@ const PowerBIReport = () => {
         groupID: groupID,
         reportID: reportID
       }
-    const response = await axios.post(`http://localhost:5000/get-embed-token`, dashIdsData);
+    const response = await axios.post(`https://powerbi-embed-dashboard-backend.onrender.com/get-embed-token`, dashIdsData);
           // const data = await response.json();
     console.log(response.data)
     const data = response.data
@@ -236,7 +247,7 @@ const PowerBIReport = () => {
 
             setActiveDashboard(id)
         try {
-          const response = await fetch("http://localhost:5000/get-embed-token");
+          const response = await fetch("https://powerbi-embed-dashboard-backend.onrender.com/get-embed-token");
           const data = await response.json();
           console.log(data)
 

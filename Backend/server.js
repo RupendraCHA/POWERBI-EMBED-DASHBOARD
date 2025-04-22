@@ -184,7 +184,10 @@ app.post("/get-embed-token", async (req, res) => {
   }
 });
 
-
+app.get("/", (req, res) => {
+  
+  res.status(200).json({message: "Backend is Active"})
+});
 
 app.listen(PORT, () => {
   console.log(`Power BI Token Server running on http://localhost:${PORT}`);
